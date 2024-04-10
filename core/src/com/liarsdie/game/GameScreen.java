@@ -31,6 +31,8 @@ public class GameScreen implements Screen {
     Array<Integer> rolls;
     Texture onePip;
     Texture twoPip;
+    Die dieOne;
+    Die dieTwo;
 
     public GameScreen(final LiarsDie liarsDie1){
         liarsDie = liarsDie1;
@@ -63,10 +65,16 @@ public class GameScreen implements Screen {
         dieRollTwo.x = 200;
         dieRollTwo.y = 200;
         rolls = new Array<>();
+        dieOne = new Die();
+        dieTwo = new Die();
 
 
 
 
+
+    }
+
+    public void rollDie(){
 
     }
 
@@ -83,6 +91,8 @@ public class GameScreen implements Screen {
         liarsDie.batch.begin();
         liarsDie.batch.draw(pokerTableImage, pokerTable.x, pokerTable.y);
         System.out.println("Poker Table drawn");
+        dieOne.roll();
+        dieTwo.roll();
         liarsDie.font.draw(liarsDie.batch, "Click Anywhere to Roll", 800/2, 390);
 
         if (Gdx.input.isTouched()){
